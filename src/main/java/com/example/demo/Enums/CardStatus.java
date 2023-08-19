@@ -6,6 +6,6 @@ public enum CardStatus {
     ACTIVE,
     DEACTIVATED,
     ISSUED,
-    BLOCKED,
+    BLOCKED
 
 }

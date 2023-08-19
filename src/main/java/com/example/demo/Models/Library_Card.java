@@ -1,5 +1,4 @@
 package com.example.demo.Models;
-
 import com.example.demo.Enums.CardStatus;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -18,16 +17,16 @@ public class Library_Card {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int card_no;
+    private Integer card_no;
 
     @Enumerated(value = EnumType.STRING)
     private CardStatus cardStatus;
 
-    private int noOfBooksIssued;
+    private Integer noOfBooksIssued;
 
-
-    @OneToOne
+   ////this is the foreign key of this table
     @JoinColumn
+    @OneToOne
     private Student student;
 
 }
