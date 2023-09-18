@@ -1,20 +1,19 @@
 package com.example.demo.Models;
 
 import com.example.demo.Enums.Genere;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @Table
-@Getter
-@Setter
+@Data
 @AllArgsConstructor
 @NoArgsConstructor
+@Builder
 public class Book {
 
    @Id
@@ -36,4 +35,7 @@ public class Book {
     @ManyToOne
     @JoinColumn
     private Author author;
+
+    @OneToMany(mappedBy = "book",cascade = CascadeType.ALL)
+    private List<TransactionOfStudent> transactionOfStudents = new ArrayList<>();
 }

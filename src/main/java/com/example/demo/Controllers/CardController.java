@@ -8,7 +8,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import javax.xml.ws.Response;
 
 @RestController
 @RequestMapping("/card")
@@ -33,7 +32,9 @@ private LibraryCardService libraryCardService;
     public ResponseEntity IssueToStudent(@RequestParam("cardId")Integer cardId,@RequestParam("roll_no")Integer roll_no){
 
         try{
+           libraryCardService.IssueToStudent(cardId,roll_no);
 
+           return new ResponseEntity("Card has been issued to a student",HttpStatus.OK);
         }catch (Exception e){
 
             return new ResponseEntity(e.getMessage(),HttpStatus.BAD_REQUEST);

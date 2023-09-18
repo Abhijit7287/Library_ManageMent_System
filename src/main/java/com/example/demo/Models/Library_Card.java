@@ -6,6 +6,8 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table
@@ -28,5 +30,8 @@ public class Library_Card {
     @JoinColumn
     @OneToOne
     private Student student;
+
+    @OneToMany(mappedBy = "library_card",cascade = CascadeType.ALL)
+    private List<TransactionOfStudent> transactionOfStudents = new ArrayList<>();
 
 }
